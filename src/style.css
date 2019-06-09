@@ -5,3 +5,9 @@
 .header {
     background: #000;
 }
+.header_text {
+    color: #fff;
+    text-align: center;
+    font-size: 22px;
+    padding: 10px 0;
+}
