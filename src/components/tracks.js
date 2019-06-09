@@ -15,14 +15,21 @@ import {connect} from 'react-redux';
                 apikey : '03e1dfb7b02e443fce1505fc92d96178'  
             }
         })
-        console.log(response);
         this.props.Done(response.data.message.body.track_list);
         console.log(this.props.tracklist);
     }
     render() {
         return (
-            <div>
+            <div className='ui container'>
+                <div className='ui segment'>
+                <form className='ui form'>
+                <div className='field'>
+                <label>Song search</label>
+                <input type='text'/>
                 
+                </div>
+                 </form>    
+            </div>
             </div>
         )
     }
