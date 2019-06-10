@@ -5,7 +5,8 @@ import Track from './Track';
 
  class Tracks extends Component {
      state = {
-         tracklists : []
+         tracklists : [],
+         header : 'Top US tracks'
      }
     async componentDidMount() {
         const response = await Musix.get('/chart.tracks.get',{
@@ -39,7 +40,7 @@ import Track from './Track';
             <div>
                {
                    this.state.tracklists.map(tracklist=> {
-                       return <Track tracklist={tracklist}/>
+                       return <Track tracklist={tracklist} header={this.state.header}/>
                    })
                }
             </div>
