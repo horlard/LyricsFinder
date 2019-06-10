@@ -44,7 +44,8 @@ import Track from './Track';
             }
         })
         console.log(response);
-        this.setState({tracklists: response.data.message.body.track_list,header:'Search results'})
+        this.setState({tracklists: response.data.message.body.track_list,header:'Search results...'})
+        this.inputRef.value='';
     }
     render() {
         return (
@@ -56,7 +57,10 @@ import Track from './Track';
                 <input type='text' ref={inputRef => this.inputRef = inputRef}/>
                 
                 </div>
-                <button className='ui primary button' style={{padding: '10px 47.5%',fontSize: '18px'}} onClick={this.onSearch.bind(this)}>Search</button>
+                <button 
+                 className='ui primary button' 
+                 style={{padding: '10px 47.5%',fontSize: '18px',display:'inline'}} 
+                 onClick={this.onSearch.bind(this)}>Search</button>
                  </form>    
             </div>
             <div className='heading'>
