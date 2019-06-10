@@ -11,3 +11,21 @@
     font-size: 22px;
     padding: 10px 0;
 }
+.grid_container {
+    display: grid;
+    grid-template-rows: repeat(5,180px);
+    grid-template-columns: repeat(2,250px);
+    margin-left: 15%;
+    grid-column-gap: 30%;
+    grid-row-gap:30px; 
+}
+.heading {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 24px;
+}
+.top_container {
+    border: 1px solid #ddd;
+    padding: 20px 20px;
+    border-radius: 8px;
+}
