@@ -14,8 +14,8 @@
 .grid_container {
     display: grid;
     grid-template-rows: repeat(5,180px);
-    grid-template-columns: repeat(2,250px);
-    margin-left: 15%;
+    grid-template-columns: repeat(2,300px);
+    margin-left: 10%;
     grid-column-gap: 30%;
     grid-row-gap:30px; 
 }
