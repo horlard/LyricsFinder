@@ -1,7 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import Loader from './loader';
 
 const Track = (props)=> {
+    if(props.tracklist === []) {
+       return <Loader />
+    }else{
     return (
+
         <div className='top_container'>
             <div className='four wide column'>
                 <div className='artist_name' style={{marginBottom: '10px',fontSize:'20px'}}>
@@ -14,9 +20,12 @@ const Track = (props)=> {
                 <div className='album_name'>
                 <i class="bullseye icon"></i> Album:{props.tracklist.track.album_name}
                 </div>
+                <Link to={`lyrics/tracks/${props.tracklist.track.track_id}`}>
                 <button class="ui primary button" style={{padding:'7px 50px',marginTop:'10px'}}>
                 <i class="angle right icon"></i>View lyrics
                 </button>
+                </Link>
+                
             </div>
         </div>
             
@@ -24,5 +33,6 @@ const Track = (props)=> {
             
         
     )
+    }
 }
 export default Track;
