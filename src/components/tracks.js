@@ -23,8 +23,7 @@ import Track from './Track';
                 apikey : '03e1dfb7b02e443fce1505fc92d96178'  
             }
         })
-        this.setState({tracklists:response.data.message.body.track_list})
-        console.log(this.state.tracklists);
+        this.setState({tracklists:response.data.message.body.track_list});
         
        
     }
@@ -43,7 +42,6 @@ import Track from './Track';
                 apikey : '03e1dfb7b02e443fce1505fc92d96178'  
             }
         })
-        console.log(response);
         this.setState({tracklists: response.data.message.body.track_list,header:'Search results...'})
         this.inputRef.value='';
     }
