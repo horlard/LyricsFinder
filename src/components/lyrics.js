@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Musix from '../api/musix';
+import {Link} from 'react-router-dom';
 
 class lyrics extends Component {
     state={
@@ -11,7 +12,7 @@ class lyrics extends Component {
             params : {
                 track_id : this.props.match.params.id,
                 apikey : '03e1dfb7b02e443fce1505fc92d96178'  
-            }
+            }   
         }).then(res=>{
             console.log(res);
             this.setState({lyrics: res.data.message.body.lyrics.lyrics_body});
@@ -30,6 +31,10 @@ class lyrics extends Component {
     render() {
         return (
             <div className='ui container' style={{marginTop: '8%'}}>
+                <Link to='/'>
+                    <div className='ui primary button' style={{marginBottom: '20px'}}><i class="arrow left icon"></i>Go Back</div>
+                </Link>
+                
                <div>
                <table class="ui red table" style={{width: '700px',height: '200px'}}>
                     <thead>
