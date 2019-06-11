@@ -4,7 +4,7 @@ import Musix from '../api/musix';
 class lyrics extends Component {
     state={
         lyrics: '',
-        track: null
+        track: ''
     }
     componentDidMount() {
          Musix.get('/track.lyrics.get',{
@@ -13,6 +13,7 @@ class lyrics extends Component {
                 apikey : '03e1dfb7b02e443fce1505fc92d96178'  
             }
         }).then(res=>{
+            console.log(res);
             this.setState({lyrics: res.data.message.body.lyrics.lyrics_body});
 
             return Musix.get('/track.get',{
@@ -23,12 +24,50 @@ class lyrics extends Component {
             })
         }).then(res=> {
             this.setState({track:res.data.message.body.track})
+            console.log(this.state.track)
         })
     }
     render() {
         return (
-            <div>
-                
+            <div className='ui container' style={{marginTop: '8%'}}>
+               <div>
+               <table class="ui red table" style={{width: '700px',height: '200px'}}>
+                    <thead>
+                        <tr><th>{`${this.state.track.track_name} by ${this.state.track.artist_name}`}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style={{paddingTop: '20px'}}>
+                            {this.state.lyrics}
+                        </tr>
+                        </tbody>
+                </table>
+
+
+                <table class="ui fixed single line celled table" style={{width: '500px'}}>
+  <thead>
+    <tr><th>Album ID</th>
+    <th>{this.state.track.album_id}</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>Explicit Words</td>
+      <td>
+          {
+              this.state.track.explicit === 0? 'No' : 'Yes'
+          }
+      </td>
+      
+    </tr>
+    <tr>
+      <td>Song Genre</td>
+      <td>Alternative</td>
+      
+    </tr>
+    
+  </tbody>
+</table>
+               </div> 
             </div>
         )
     }
