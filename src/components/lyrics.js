@@ -14,7 +14,7 @@ class lyrics extends Component {
                 apikey : '03e1dfb7b02e443fce1505fc92d96178'  
             }   
         }).then(res=>{
-            console.log(res);
+            
             this.setState({lyrics: res.data.message.body.lyrics.lyrics_body});
 
             return Musix.get('/track.get',{
@@ -25,7 +25,7 @@ class lyrics extends Component {
             })
         }).then(res=> {
             this.setState({track:res.data.message.body.track})
-            console.log(this.state.track)
+            
         })
     }
     render() {
