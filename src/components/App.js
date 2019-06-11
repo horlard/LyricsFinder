@@ -1,6 +1,10 @@
 import React from 'react';
-import {BrowserRouter,Route} from 'react-router-dom';
+import {BrowserRouter,Route} from 'react-router-dom';   
 import Header from "./header";
+import Tracks from './tracks';
+import Lyrics from './lyrics';
+
+
 
 class App extends React.Component {
     render() {
@@ -9,7 +13,8 @@ class App extends React.Component {
                 <div className='container'>
                      <Header />
                      <div className='main_container'>
-                         <Route exact path='/' component={index} />
+                         <Route exact path='/' component={Tracks} />
+                         <Route exact path='/lyrics/tracks/:id'component={Lyrics} />
                      </div>
                  </div>
             
@@ -19,5 +24,4 @@ class App extends React.Component {
         )
     }
 }
-
-export default App;
+export default App; 
