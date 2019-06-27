@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Musix from '../api/musix';
 import {Link} from 'react-router-dom';
+import Spinner from './spinner';
+import LyricsInfo from './lyricsInfo';
 
 class lyrics extends Component {
     state={
@@ -30,51 +32,15 @@ class lyrics extends Component {
     }
     render() {
         return (
-            <div className='ui container' style={{marginTop: '8%'}}>
-                <Link to='/'>
-                    <div className='ui primary button' style={{marginBottom: '20px'}}><i class="arrow left icon"></i>Go Back</div>
-                </Link>
-                
-               <div>
-               <table class="ui red table" style={{width: '700px',height: '200px'}}>
-                    <thead>
-                        <tr><th>{`${this.state.track.track_name} by ${this.state.track.artist_name}`}</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr style={{paddingTop: '20px'}}>
-                            {this.state.lyrics}
-                        </tr>
-                        </tbody>
-                </table>
-
-
-                <table class="ui fixed single line celled table" style={{width: '500px'}}>
-  <thead>
-    <tr><th>Album ID</th>
-    <th>{this.state.track.album_id}</th>
-  </tr></thead>
-  <tbody>
-    <tr>
-      <td>Explicit Words</td>
-      <td>
-          {
-              this.state.track.explicit === 0? 'No' : 'Yes'
-          }
-      </td>
-      
-    </tr>
-    <tr>
-      <td>Song Genre</td>
-      <td>Alternative</td>
-      
-    </tr>
-    
-  </tbody>
-</table>
-               </div> 
-            </div>
+            <React.Fragment>
+                {
+                    this.state.track===''? <Spinner /> :<LyricsInfo lyrics={this.state.lyrics} track={this.state.track}/>
+                }
+            </React.Fragment>
         )
+        
+            
+        
     }
 }
 
